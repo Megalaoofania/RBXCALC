@@ -169,6 +169,7 @@ function earningsNVIDIA()
         hour.innerText = 64.08/24 + "R$/hour"
         day.innerText = base + "R$/day"
         month.innerText = base*30 + "R$/month"
+
         document.getElementById("earnings").hidden = false
     }
     else if(value == "3090")
