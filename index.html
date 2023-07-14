@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>RBXCALC</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400&amp;family=Ubuntu:wght@700&amp;display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <br>
+        <h1>RBXCALC - v1.0.0 (7/14/23)</h1>
+        <h3>An unoffical profits estimator for <a href="https://discord.gg/RBXIDLE" style="color: lightskyblue;">RBXIDLE</a> made by Megalaoofania</h3>
+        <h2 style="color: red;">Please take this with a grain of salt, as you may get more or less than what is shown.</h2>
+        <hr>
+        <h3>I use...</h3>
+        <button onclick="nvidia()" id="nvidia">NVIDIA GPUs</button>
+        <button onclick="amd()" id="amd" disabled>AMD GPUs (not enough data)</button>
+        <br>
+        <div id="nvidiaList" hidden>
+            <h2>Select your GPU</h2>
+            <select placeholder="Select NVIDIA GPU" onchange="earningsNVIDIA()" id="nList">
+                <option value="1050" disabled>GTX 1050 (No Samples)</option>
+                <option value="1050Ti" disabled>GTX 1050Ti (No Samples)</option>
+                <option value="1060">GTX 1060 (1 Sample)</option>
+                <option value="1070">GTX 1070 (1 Sample)</option>
+                <option value="1070Ti" disabled>GTX 1070Ti (No Samples)</option>
+                <option value="1080" disabled>GTX 1080 (No Samples)</option>
+                <option value="1080Ti" disabled>GTX 1080Ti (No Samples)</option>
+                <option value="1650">GTX 1650 (1 Sample)</option>
+                <option value="1650MaxQ">GTX 1650 w/ Max-Q Design (1 Sample)</option>
+                <option value="1650Ti" disabled>GTX 1650Ti (No Samples)</option>
+                <option value="1660">GTX 1660 (1 Sample)</option>
+                <option value="1660Ti">GTX 1660Ti (1 Sample)</option>
+                <option value="1660Super">GTX 1660 SUPER (4 Samples)</option>
+                <option value="2060">RTX 2060 (1 Sample)</option>
+                <option value="2060Ti" disabled>RTX 2060Ti (No Samples)</option>
+                <option value="2060Super" disabled>RTX 2060 SUPER (No Samples)</option>
+                <option value="2070" disabled>RTX 2070 (No Samples)</option>
+                <option value="2070Super">RTX 2070 SUPER (3 Samples)</option>
+                <option value="2080" disabled>RTX 2080 (No Samples)</option>
+                <option value="2080Ti" disabled>RTX 2080Ti (No Samples)</option>
+                <option value="2080Super" disabled>RTX 2080 SUPER (No Samples)</option>
+                <option value="3050" disabled>RTX 3050 (No Samples)</option>
+                <option value="3050Laptop">RTX 3050 Laptop (1 Sample)</option>
+                <option value="3050Ti" disabled>RTX 3050Ti (No Samples)</option>
+                <option value="3060">RTX 3060 (16 Samples)</option>
+                <option value="3060Laptop">RTX 3060 Laptop (3 Samples)</option>
+                <option value="3060Ti">RTX 3060Ti (6 Samples)</option>
+                <option value="3070">RTX 3070 (4 Samples)</option>
+                <option value="3070Laptop" disabled>RTX 3070 Laptop (No Samples)</option>
+                <option value="3070Ti">RTX 3070Ti (4 Samples)</option>
+                <option value="3080">RTX 3080 (3 Samples)</option>
+                <option value="3080Laptop" disabled>RTX 3080 Laptop (No Samples)</option>
+                <option value="3080Ti">RTX 3080Ti (2 Samples)</option>
+                <option value="3090">RTX 3090 (1 Sample)</option>
+                <option value="3090Ti" disabled>RTX 3090Ti (No Samples)</option>
+                <option value="4060" disabled>RTX 4060 (No Samples)</option>
+                <option value="4060Ti" disabled>RTX 4060Ti (No Samples)</option>
+                <option value="4070" disabled>RTX 4070 (No Samples)</option>
+                <option value="4070Ti" disabled>RTX 4070Ti (No Samples)</option>
+                <option value="4080">RTX 4080 (2 Samples)</option>
+                <option value="4090">RTX 4090 (24 Samples)</option>
+            </select>
+        </div>
+        <div id="amdList" hidden>
+            <h2>Select your GPU</h2>
+            <select id="aList">
+                <option value="6650">RX 6650 XT (1 Sample)</option>
+                <option value="6700">RX 6700 XT (8 Samples)</option>
+                <option disabled>Everything else but these two cards have been sampled.</option>
+            </select>
+        </div>
+        <br><br><br>
+        <div id="earnings" hidden>
+            <h1>Earnings</h1>
+            <h3>How many hours per day will you have the miner running?</h3>
+            <input id="time" type="range" value="24" max="24" min="1" style="width: 370px;" oninput="earningsNVIDIA()">
+            <h2 id="range">24 hours</h2>
+            <h3 id="hour"></h3>
+            <h3 id="day"></h3>
+            <h3 id="month"></h3>
+        </div>
+    </body>
+    <script src="main.js"></script>
+</html>
+<style>
+    body
+    {
+        line-height: 8px;
+        background-color: #383838;
+        color: white;
+        font-family: 'Kanit', sans-serif; font-weight: 200;
+    }
+</style>
